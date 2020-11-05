@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing": {
+    "keep3": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing",
+            "outputPath": "dist/keep3",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,7 +23,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true
@@ -58,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing:build"
+            "browserTarget": "keep3:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing:build:production"
+              "browserTarget": "keep3:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing:build"
+            "browserTarget": "keep3:build"
           }
         },
         "test": {
@@ -80,6 +81,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": [],
@@ -103,7 +105,7 @@
         }
       }
     },
-    "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing-e2e": {
+    "keep3-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -112,11 +114,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing:serve"
+            "devServerTarget": "keep3:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing:serve:production"
+              "devServerTarget": "keep3:serve:production"
             }
           }
         },
@@ -132,5 +134,5 @@
       }
     }
   },
-  "defaultProject": "main-jfse-mcmc-java-jfse-mc03-directives-eventhandling-reactiveform-httpclient-routing"
+  "defaultProject": "keep3"
 }
