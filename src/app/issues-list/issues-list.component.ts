@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Issue } from '../models/Issue';
+import { IssueService } from '../services/issue.service';
 
 @Component({
   selector: 'app-issues-list',
@@ -7,15 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IssuesListComponent implements OnInit {
 
-
-  constructor() { }
+  issues:Issue;
+  constructor(private issueservice: IssueService) { }
 
   // Write logic to get all issues from IssueService
   ngOnInit() {
+    this.issueservice.getIssues().subscribe(
+      data => {
+        this.issues = data;
+      });
   }
 
   // Implement deleteIssue method to delete the issue
-  deleteIssue() {
+  deleteIssue(id:number) {
+    this.issueservice.deleteIssue(id).subscribe();
   }
 
 }

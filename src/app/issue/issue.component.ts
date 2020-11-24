@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { IssueService } from '../services/issue.service';
 
 @Component({
   selector: 'app-issue',
@@ -15,9 +17,16 @@ export class IssueComponent implements OnInit {
   // Form is created in html file and write code to make it functional using FormBuilder
   // Write logic to make all fields as mandatory
 
-  constructor() {}
+  constructor(private issueservice: IssueService) {}
 
   ngOnInit() {
+    this.createForm();
+  }
+  private createForm() {
+    this.form= new FormGroup({
+       title: new FormControl(''),
+       description: new FormControl('')
+    });
   }
 
   // Implement onSubmit method to save a Issue, verify form is valid or not
@@ -25,9 +34,14 @@ export class IssueComponent implements OnInit {
   // Display message 'Failed to add Issue!!' while error handling
   // Display message 'Issue added' if Issue is added
   onSubmit() {
+    if(this.form==null){
+      console.log("Title and Description should not be empty!!! Please verify details");
+    }else
+    this.issueservice.addIssue(this.form.value).subscribe();
   }
   // clearForm method is to reset the form after submitting
   clearForm() {
+    this.form.reset();
   }
 
 }
